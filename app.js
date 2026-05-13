@@ -1104,11 +1104,20 @@ form.addEventListener("submit", async (e) => {
         });
 
         const data = await response.json();
+if (data.success) {
 
-        if (data.success) {
-            alert("Login berhasil");
-            window.location.href = "index.html";
-        } else {
+    // simpan token dummy
+    setAuth("admin-token", username);
+
+    // tampilkan admin panel
+    showAdminScreen();
+
+    // load data
+    await loadDashboard();
+    await loadServis();
+
+    alert("Login berhasil");
+} else {
             alert(data.message);
         }
     } catch (error) {

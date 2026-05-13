@@ -1083,41 +1083,36 @@ document.getElementById('form-servis').addEventListener('submit', async (e) => {
     }
 });
 
-document.getElementById('login-form').addEventListener('submit', async (event) => {
-    event.preventDefault();
+const form = document.getElementById("login-form");
 
-    const form = event.currentTarget;
-    const errorEl = document.getElementById('login-error');
-    const submitButton = form.querySelector('button[type="submit"]');
-    const credentials = Object.fromEntries(new FormData(form));
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-    errorEl.classList.remove('show');
-    errorEl.textContent = '';
-    submitButton.disabled = true;
-    submitButton.textContent = 'Memproses...';
+    const username = form.username.value;
+    const password = form.password.value;
 
     try {
-        const res = await fetch(`${API_URL}/login`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(credentials)
+        const response = await fetch("/api/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                username,
+                password,
+            }),
         });
-        const result = await readJsonResponse(res, 'Login gagal karena endpoint login belum aktif. Restart server Node lalu coba lagi.');
 
-        if (!res.ok || !result.success || !result.token) {
-            throw new Error(result.error || 'Login gagal');
+        const data = await response.json();
+
+        if (data.success) {
+            alert("Login berhasil");
+            window.location.href = "tracking.html";
+        } else {
+            alert(data.message);
         }
-
-        setAuth(result.token, result.user?.username || credentials.username);
-        form.reset();
-        showAdminScreen();
-        await Promise.all([loadDashboard(), loadServis()]);
     } catch (error) {
-        errorEl.textContent = error.message || 'Login gagal';
-        errorEl.classList.add('show');
-    } finally {
-        submitButton.disabled = false;
-        submitButton.textContent = 'Login';
+        alert("Server error");
     }
 });
 

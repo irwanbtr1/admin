@@ -1,3 +1,10 @@
+const SUPABASE_URL = "https://mqjhkoxlcezscpdolnhh.supabase.co/rest/v1/";
+const SUPABASE_KEY = "sb_publishable_t3AEfzgafWsQeKsKKu-I3g_OJPD2GIy";
+
+const supabaseClient = supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
 const API_URL = '/api';
 const AUTH_TOKEN_KEY = 'adminAuthToken';
 const AUTH_USER_KEY = 'adminUsername';

@@ -1,0 +1,16 @@
+# Node
+node_modules/
+
+# Logs
+*.log
+server-err.log
+server-out.log
+
+# Databases / local data
+backup-database/
+database.xlsx
+
+# Misc
+.DS_Store
+.env
+

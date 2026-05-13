@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bon Online - IWAN PONSEL</title>
+    <link rel="stylesheet" href="/bon-online.css">
+</head>
+<body>
+    <main class="bon-shell">
+        <section class="bon-card">
+            <header class="bon-header">
+                <div>
+                    <h1>IWAN PONSEL</h1>
+                    <p>Bon online tanda terima servis handphone</p>
+                </div>
+                <strong id="service-id">-</strong>
+            </header>
+
+            <div id="message" class="message">Memuat bon online...</div>
+
+            <section id="bon-content" class="hidden">
+                <div class="status-row">
+                    <span id="service-status" class="status-pill">-</span>
+                    <span id="date-in">-</span>
+                </div>
+
+                <div class="section">
+                    <h2>Data Customer</h2>
+                    <div class="detail-grid">
+                        <div><span>Nama Customer</span><strong id="customer-name">-</strong></div>
+                        <div><span>No HP</span><strong id="customer-phone">-</strong></div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Data Handphone</h2>
+                    <div class="detail-grid">
+                        <div><span>Merk / Model</span><strong id="phone-model">-</strong></div>
+                        <div><span>Kelengkapan</span><strong id="items">-</strong></div>
+                        <div class="wide"><span>Kerusakan</span><strong id="damage">-</strong></div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Biaya & Catatan</h2>
+                    <div class="detail-grid">
+                        <div><span>Estimasi Biaya</span><strong id="estimate-cost">-</strong></div>
+                        <div><span>Biaya Akhir</span><strong id="final-cost">-</strong></div>
+                        <div><span>Teknisi</span><strong id="technician">-</strong></div>
+                        <div><span>Tanggal Selesai</span><strong id="date-done">-</strong></div>
+                        <div><span>Status Garansi</span><strong id="warranty-status">-</strong></div>
+                        <div><span>Masa Garansi</span><strong id="warranty-period">-</strong></div>
+                        <div class="wide"><span>Catatan</span><strong id="note">-</strong></div>
+                    </div>
+                </div>
+
+                <div class="notice">
+                    Simpan link bon ini. Bon dapat ditunjukkan saat pengambilan HP di IWAN PONSEL.
+                </div>
+
+                <div class="actions">
+                    <a id="tracking-link" class="btn-primary" href="#">Lihat Status Servis</a>
+                </div>
+            </section>
+        </section>
+    </main>
+
+
+    <script src="/bon-online.js"></script>
+</body>
+</html>

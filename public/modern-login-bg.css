@@ -1,0 +1,101 @@
+:root{
+  --bg1:#0b1220;
+  --bg2:#111a2e;
+  --card:#ffffff;
+  --text:#e5e7eb;
+  --muted:rgba(255,255,255,.72);
+  --accent:#b23a48;
+  --accent2:#22c55e;
+}
+
+/* Use this file by keeping it linked from index.html, or @import it in style.css */
+body.login-modern-bg{
+  margin:0;
+  min-height:100vh;
+  background: #ffffff;
+  color: #2d2d2d;
+  overflow-x:hidden;
+}
+
+body.login-modern-bg::before,
+body.login-modern-bg::after{
+  display:none;
+}
+
+
+/* Glass overlay */
+body.login-modern-bg::before{
+  content:"";
+  position:fixed;
+  inset:-50px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.08) 0%, rgba(255,255,255,0) 35%),
+    radial-gradient(600px 240px at 30% 20%, rgba(255,255,255,.10) 0%, rgba(255,255,255,0) 60%);
+  pointer-events:none;
+}
+
+/* Animated blobs */
+body.login-modern-bg::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(220px 220px at 15% 25%, rgba(178,58,72,.50) 0%, rgba(178,58,72,0) 65%),
+    radial-gradient(260px 260px at 80% 35%, rgba(34,197,94,.38) 0%, rgba(34,197,94,0) 62%),
+    radial-gradient(240px 240px at 45% 75%, rgba(59,130,246,.28) 0%, rgba(59,130,246,0) 60%);
+  filter: blur(18px) saturate(1.15);
+  opacity:.9;
+  animation: blobFloat 10s ease-in-out infinite alternate;
+}
+
+@keyframes blobFloat{
+  from{ transform: translate3d(0,0,0) scale(1); }
+  to{ transform: translate3d(0,-20px,0) scale(1.03); }
+}
+
+/* Make login card pop (mobile-first) */
+body.login-modern-bg .login-card{
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,.35);
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.35),
+    0 0 0 1px rgba(255,255,255,.10) inset;
+  color:#111827;
+}
+
+@media (max-width: 640px){
+  body.login-modern-bg::before{ inset:-10px; }
+  body.login-modern-bg::after{ filter: blur(14px) saturate(1.1); opacity:.85; }
+  body.login-modern-bg .login-card{
+    width: min(420px, 100%);
+    padding: 20px;
+    border-radius: 14px;
+  }
+}
+
+
+body.login-modern-bg .login-brand h1{
+  color: var(--accent);
+}
+
+body.login-modern-bg .login-brand p,
+body.login-modern-bg .login-user{
+  color: rgba(255,255,255,1);
+  font-weight: 800;
+}
+
+/* Optional: subtle grid */
+.login-modern-grid{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,.06) 1px, rgba(255,255,255,0) 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.06) 1px, rgba(255,255,255,0) 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(600px 240px at 50% 30%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%);
+  opacity:.8;
+}
+

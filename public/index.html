@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IWAN PONSEL</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/modern-login-bg.css">
+
+
+</head>
+<body class="login-modern-bg">
+    <main id="login-screen" class="login-screen">
+
+        <section class="login-card">
+            <div class="login-brand">
+                <h1>IWAN PONSEL</h1>
+                <p>Masuk untuk mengelola data servis.</p>
+            </div>
+            <form id="login-form" class="login-form">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" name="username" autocomplete="username" required placeholder="Username admin">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="password" autocomplete="current-password" required placeholder="Password admin">
+                </div>
+                <p id="login-error" class="login-error"></p>
+                <button type="submit" class="btn-primary">Login</button>
+            </form>
+        </section>
+    </main>
+
+    <div class="container locked">
+        <header>
+            <div>
+                <h1>IWAN PONSEL KARYA WISATA</h1>
+                <p id="login-user" class="login-user"></p>
+            </div>
+            <button type="button" id="logout-btn" class="logout-btn">Logout</button>
+        </header>
+
+        <!-- Dashboard Stats -->
+        <div class="dashboard">
+            <div class="stat-card antrian" data-stat="Antrian">
+                <h3>Antrian</h3>
+                <span id="stat-antrian">0</span>
+            </div>
+            <div class="stat-card proses" data-stat="Proses">
+                <h3>Proses</h3>
+                <span id="stat-proses">0</span>
+            </div>
+            <div class="stat-card selesai" data-stat="Selesai">
+                <h3>Selesai</h3>
+                <span id="stat-selesai">0</span>
+            </div>
+            <div class="stat-card diambil" data-stat="Diambil">
+                <h3>Diambil</h3>
+                <span id="stat-diambil">0</span>
+            </div>
+            <div class="stat-card gagal" data-stat="Gagal">
+                <h3>Gagal</h3>
+                <span id="stat-gagal">0</span>
+            </div>
+            <div class="stat-card follow-up" data-stat="FollowUp">
+                <h3>Perlu Follow Up</h3>
+                <span id="stat-follow-up">0</span>
+            </div>
+            <div class="stat-card pickup" data-stat="Pickup">
+                <h3>Belum Diambil</h3>
+                <span id="stat-pickup">0</span>
+            </div>
+            <div class="stat-card warranty" data-stat="Warranty">
+                <h3>Garansi Aktif</h3>
+                <span id="stat-warranty">0</span>
+            </div>
+        </div>
+
+        <!-- Tab Navigation -->
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="list">Daftar Servis</button>
+            <button class="tab-btn" data-tab="add">Tambah Baru</button>
+        </nav>
+
+        <!-- Daftar Servis -->
+        <section id="list" class="tab-content active">
+            <div class="filters">
+                <input type="text" id="search" placeholder="Cari nama/ID/merk...">
+                <select id="filter-status">
+                    <option value="">Semua Status</option>
+                    <option value="Antrian">Antrian</option>
+                    <option value="Proses">Proses</option>
+                    <option value="Selesai">Selesai</option>
+                    <option value="Diambil">Diambil</option>
+                    <option value="Gagal">Gagal</option>
+                </select>
+            </div>
+            <div class="table-wrapper">
+                <table id="servis-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tanggal</th>
+                            <th>Pelanggan</th>
+                            <th>HP</th>
+                            <th>Kerusakan</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Form Tambah -->
+        <section id="add" class="tab-content">
+            <div class="form-header">
+                <div>
+                    <h2>Tambah Data Customer</h2>
+                    <p>Lengkapi data servis baru untuk membuat tanda terima dan bon customer.</p>
+                </div>
+            </div>
+            <form id="form-servis">
+                <div class="service-form">
+                    <div class="form-section">
+                        <div class="section-heading">
+                            <span>1</span>
+                            <h3>Data Customer</h3>
+                        </div>
+                        <div class="form-grid two-columns">
+                            <div class="form-group">
+                                <label>Nama Pelanggan *</label>
+                                <input type="text" name="namaPelanggan" required>
+                            </div>
+                            <div class="form-group">
+                                <label>No HP Pelanggan *</label>
+                                <input type="tel" name="noHpPelanggan" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <div class="section-heading">
+                            <span>2</span>
+                            <h3>Data Handphone</h3>
+                        </div>
+                        <div class="form-grid two-columns">
+                            <div class="form-group">
+                                <label>Merk HP *</label>
+                                <input type="text" name="merkHp" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Model HP *</label>
+                                <input type="text" name="modelHp" required>
+                            </div>
+                            <div class="form-group full-width">
+                                <label>Kelengkapan</label>
+                                <input type="text" name="kelengkapan">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <div class="section-heading">
+                            <span>3</span>
+                            <h3>Detail Servis</h3>
+                        </div>
+                        <div class="form-grid two-columns">
+                            <div class="form-group full-width">
+                                <label>Kerusakan *</label>
+                                <textarea name="kerusakan" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Estimasi Biaya</label>
+                                <input type="text" name="estimasiBiaya">
+                            </div>
+                            <div class="form-group">
+                                <label>Teknisi</label>
+                                <select name="teknisi">
+                                    <option value="">Pilih Teknisi</option>
+                                    <option value="Canek">Canek</option>
+                                    <option value="Aji">Aji</option>
+                                    <option value="Irwan">Irwan</option>
+                                    <option value="Kiki">Kiki</option>
+                                </select>
+                            </div>
+                            <div class="form-group full-width">
+                                <label>Catatan</label>
+                                <textarea name="catatan"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="reset" class="btn-secondary">Reset Form</button>
+                        <button type="submit" class="btn-primary">Simpan Data Servis</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <!-- Modal Detail/Edit -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Detail Servis</h2>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Popup Konfirmasi -->
+    <div id="confirm-modal" class="confirm-modal">
+        <div class="confirm-card">
+            <div id="confirm-icon" class="confirm-icon">!</div>
+            <div class="confirm-copy">
+                <h2 id="confirm-title">Konfirmasi</h2>
+                <p id="confirm-message">Apakah tindakan ini ingin dilanjutkan?</p>
+            </div>
+            <div id="confirm-extra" class="confirm-extra"></div>
+            <div class="confirm-actions">
+                <button type="button" id="confirm-cancel" class="btn-secondary">Batal</button>
+                <button type="button" id="confirm-ok" class="btn-primary">Lanjutkan</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

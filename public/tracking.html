@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bon Customer & Tracking - IWAN PONSEL</title>
+    <link rel="stylesheet" href="/tracking.css">
+</head>
+<body>
+    <main class="tracking-shell">
+        <section class="tracking-card">
+            <div class="brand">
+                <h1>IWAN PONSEL</h1>
+                <p>Bon customer + tracking status servis</p>
+            </div>
+
+            <div id="tracking-message" class="message">Memuat bon...</div>
+
+            <section id="tracking-result" class="result hidden">
+                <div class="customer-status-card">
+                    <div>
+                        <span class="eyebrow">Status Saat Ini</span>
+                        <h2 id="current-status-title">-</h2>
+                        <p id="current-status-description">-</p>
+                    </div>
+                    <button type="button" id="refresh-status" class="refresh-btn">Refresh</button>
+                </div>
+
+                <div class="result-head">
+                    <div>
+                        <span class="eyebrow">Kode Servis</span>
+                        <h2 id="service-id">-</h2>
+                    </div>
+                    <span id="service-status" class="status-pill">-</span>
+                </div>
+
+                <div class="progress">
+                    <div class="step" data-status="Antrian">
+                        <span>1</span>
+                        <p>Antrian</p>
+                    </div>
+                    <div class="step" data-status="Proses">
+                        <span>2</span>
+                        <p>Proses</p>
+                    </div>
+                    <div class="step" data-status="Selesai">
+                        <span>3</span>
+                        <p>Selesai</p>
+                    </div>
+                    <div class="step" data-status="Diambil">
+                        <span>4</span>
+                        <p>Diambil</p>
+                    </div>
+                </div>
+
+                <div class="detail-list">
+                    <div><span>Nama Customer</span><strong id="customer-name">-</strong></div>
+                    <div><span>No HP</span><strong id="customer-phone">-</strong></div>
+                    <div><span>Handphone</span><strong id="phone-model">-</strong></div>
+                    <div><span>Kerusakan</span><strong id="damage">-</strong></div>
+                    <div><span>Tanggal Masuk</span><strong id="date-in">-</strong></div>
+                    <div><span>Tanggal Selesai</span><strong id="date-done">-</strong></div>
+                    <div><span>Status Garansi</span><strong id="warranty-status">-</strong></div>
+                    <div><span>Masa Garansi</span><strong id="warranty-period">-</strong></div>
+                    <div><span>Estimasi Biaya</span><strong id="estimate-cost">-</strong></div>
+                    <div><span>Biaya Akhir</span><strong id="final-cost">-</strong></div>
+                    <div class="wide"><span>Catatan</span><strong id="note">-</strong></div>
+                </div>
+
+                <div class="sync-info">
+                    <span id="last-sync">Status otomatis sinkron.</span>
+                </div>
+
+                <div class="actions">
+                    <!-- tombol cetak PDF dihapus sesuai permintaan -->
+
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <script src="/tracking.js"></script>
+</body>
+</html>
+

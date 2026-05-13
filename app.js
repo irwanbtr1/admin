@@ -1107,7 +1107,7 @@ form.addEventListener("submit", async (e) => {
 
         if (data.success) {
             alert("Login berhasil");
-            window.location.href = "tracking.html";
+            window.location.href = "index.html";
         } else {
             alert(data.message);
         }

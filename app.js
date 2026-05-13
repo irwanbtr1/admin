@@ -1132,6 +1132,10 @@ if (data.success) {
 
     // tampilkan admin panel
     showAdminScreen();
+    // pastikan admin panel terlihat langsung (hilangkan state login)
+    document.getElementById('login-screen')?.classList.add('hidden');
+    document.querySelector('.container')?.classList.remove('locked');
+
 
     // load data
     await loadDashboard();

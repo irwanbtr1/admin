@@ -10,6 +10,20 @@ const AUTH_TOKEN_KEY = 'adminAuthToken';
 const AUTH_USER_KEY = 'adminUsername';
 let servisData = [];
 
+async function loadServis() {
+
+    const { data, error } = await supabaseClient
+        .from('servis')
+        .select('*');
+
+    console.log(data);
+
+    if (!error) {
+        servisData = data;
+        renderTable(servisData);
+    }
+}
+
 function getAuthToken() {
     return localStorage.getItem(AUTH_TOKEN_KEY) || '';
 }
